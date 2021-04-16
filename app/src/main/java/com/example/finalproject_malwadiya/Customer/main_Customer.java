@@ -17,10 +17,12 @@ import com.example.finalproject_malwadiya.my_tab;
 import com.example.finalproject_malwadiya.pagerAdapter;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class main_Customer extends AppCompatActivity {
     TabLayout TabLayout;
     ViewPager ViewPager;
+
 
     Button btn_add;
     @Override
@@ -31,6 +33,14 @@ public class main_Customer extends AppCompatActivity {
         ViewPager =findViewById(R.id.main_pager);
         btn_add=findViewById(R.id.main_btn_add);
 
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent add_res=new Intent(getBaseContext(),add_request.class);
+                startActivity(add_res);
+            }
+        });
 
         //fragment
         pagerAdapter adapter=new pagerAdapter(getSupportFragmentManager());
@@ -74,17 +84,6 @@ public class main_Customer extends AppCompatActivity {
             }
         });
 
-
-
-
-
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
     }
    // menu
         @Override
@@ -124,9 +123,17 @@ public class main_Customer extends AppCompatActivity {
 
                     return true;
 
-            }
+
+            case R.id.menu_Sign_out:
+            signOut();
+
+            return true;
+    }
             return false;
 
         }
+    private void signOut() {
+        FirebaseAuth.getInstance().signOut();
 
-    }
+    }}
+

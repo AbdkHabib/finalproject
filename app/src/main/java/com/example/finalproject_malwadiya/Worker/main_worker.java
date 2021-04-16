@@ -1,17 +1,25 @@
 package com.example.finalproject_malwadiya.Worker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.example.finalproject_malwadiya.Customer.Fragment_Jobs;
+import com.example.finalproject_malwadiya.Customer.main_Customer;
+import com.example.finalproject_malwadiya.Customer.setting;
 import com.example.finalproject_malwadiya.R;
 import com.example.finalproject_malwadiya.Customer.fragment_Requests;
 import com.example.finalproject_malwadiya.my_tab;
 import com.example.finalproject_malwadiya.pagerAdapter;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class main_worker extends AppCompatActivity {
   TabLayout TabLayout;
@@ -66,4 +74,54 @@ public class main_worker extends AppCompatActivity {
         });
 
     }
-}
+    // menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        SearchView searchView =(SearchView) menu.findItem(R.id.main_search).getActionView();
+        searchView.setSubmitButtonEnabled(true);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                startActivity(new Intent(getApplicationContext(), main_Customer.class));
+                finish();
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.setting:
+                Intent About=new Intent(this, setting_worker.class);
+                startActivity(About);
+
+                return true;
+
+
+            case R.id.menu_Sign_out:
+                signOut();
+
+                return true;
+        }
+        return false;
+
+    }
+    private void signOut() {
+        FirebaseAuth.getInstance().signOut();
+
+    }}
