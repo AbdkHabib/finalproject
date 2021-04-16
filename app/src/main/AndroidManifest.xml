@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Finalproject_malwadiya">
-        <activity android:name=".add_request"></activity>
+        <activity android:name=".Order_details"></activity>
+        <activity android:name=".add_request" />
         <activity android:name=".Worker.main_worker" />
         <activity android:name=".Customer.setting" />
         <activity android:name=".Customer.main_Customer">

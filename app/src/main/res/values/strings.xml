@@ -2,4 +2,14 @@
     <string name="app_name">finalproject_m.alwadiya</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="Occupations">
+        <item>سباكة</item>
+        <item>كهرباء</item>
+        <item>النجارة</item>
+        <item>تبريد وتكييف</item>
+        <item>مصاعد</item>
+        <item>صيانة الكمبيوتر</item>
+        <item>بلاط</item>
+    </string-array>
+
 </resources>

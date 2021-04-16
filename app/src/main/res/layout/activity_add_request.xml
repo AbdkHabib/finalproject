@@ -16,7 +16,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/sp_addrequest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight=".5" />
