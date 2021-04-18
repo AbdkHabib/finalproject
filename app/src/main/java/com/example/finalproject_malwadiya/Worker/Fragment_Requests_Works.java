@@ -20,30 +20,11 @@ import java.util.ArrayList;
 
 public class Fragment_Requests_Works extends Fragment {
 
-    private static final String ARG_id= "id";
-    private static final String ARG_name = "name";
-
-    private int id;
-    private String name;
-
     public Fragment_Requests_Works() {
     }
-    public static Fragment_Tasks newInstance(int id, String name) {
+    public static Fragment_Tasks newInstance() {
         Fragment_Tasks fragment = new Fragment_Tasks();
-        Bundle args = new Bundle();
-        args.putInt(ARG_id, id);
-        args.putString(ARG_name, name);
-        fragment.setArguments(args);
         return fragment;
-    }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            id = getArguments().getInt(ARG_id);
-            name = getArguments().getString(ARG_name);
-        }
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +36,6 @@ public class Fragment_Requests_Works extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 
         RecyclerView rv =view.findViewById(R.id.rv_request_works);
         ArrayList<Request_Works> request_works =new ArrayList<>();

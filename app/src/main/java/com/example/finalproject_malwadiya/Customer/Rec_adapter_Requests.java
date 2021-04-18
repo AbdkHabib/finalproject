@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject_malwadiya.R;
+import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
@@ -18,11 +19,12 @@ public class Rec_adapter_Requests extends RecyclerView.Adapter <Rec_adapter_Requ
 
     ArrayList<Requests> Request;
 
-    public Rec_adapter_Requests(ArrayList<Requests> Request) {
-        this.Request = Request;
+    private RecycleViewOnItemClick recycleViewOnItemClick;
+
+    public Rec_adapter_Requests(ArrayList<Requests> request, RecycleViewOnItemClick recycleViewOnItemClick) {
+        Request = request;
+        this.recycleViewOnItemClick = recycleViewOnItemClick;
     }
-
-
 
     @NonNull
     @Override
@@ -61,6 +63,20 @@ public class Rec_adapter_Requests extends RecyclerView.Adapter <Rec_adapter_Requ
             adress = itemView.findViewById(R.id.request_tv_adresss);
             Status = itemView.findViewById(R.id.request_tv_Status);
             imageView = itemView.findViewById(R.id.request_imageView4);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recycleViewOnItemClick.onItemClick(getAdapterPosition());
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                public boolean onLongClick(View v) {
+                    recycleViewOnItemClick.onLongItemClick(getAdapterPosition());
+                    return true;
+                }
+            });
         }
     }
 }

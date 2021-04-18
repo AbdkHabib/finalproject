@@ -11,5 +11,24 @@
         <item>صيانة الكمبيوتر</item>
         <item>بلاط</item>
     </string-array>
-
+    <string-array name="location">
+        <item>غزةالرمال</item>
+        <item>الزيتون</item>
+        <item>الشجاعية</item>
+        <item>جباليا </item>
+        <item>بيت حانون </item>
+        <item>بيت لاهيا</item>
+        <item>الشيخ رضوان</item>
+        <item>الشاطئ</item>
+        <item>غزة الشمال </item>
+        <item>النصيرات</item>
+        <item>البريج</item>
+        <item>المغازي</item>
+        <item>ديرالبلح</item>
+        <item>القرارة</item>
+        <item>بني سهيلا</item>
+        <item>خانيونس</item>
+        <item>رفح</item>
+        <item>تل السلطان</item>
+    </string-array>
 </resources>

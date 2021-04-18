@@ -13,6 +13,7 @@ import com.example.finalproject_malwadiya.Customer.Rec_adapter_jobs;
 import com.example.finalproject_malwadiya.Customer.Requests;
 import com.example.finalproject_malwadiya.Customer.jobs;
 import com.example.finalproject_malwadiya.R;
+import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
@@ -20,9 +21,11 @@ public class Rec_adapter_Requests_works extends RecyclerView.Adapter <Rec_adapte
 
 
     ArrayList<Request_Works> Request;
+    private RecycleViewOnItemClick recycleViewOnItemClick;
 
-    public Rec_adapter_Requests_works(ArrayList<Request_Works> request) {
+    public Rec_adapter_Requests_works(ArrayList<Request_Works> request, RecycleViewOnItemClick recycleViewOnItemClick) {
         Request = request;
+        this.recycleViewOnItemClick = recycleViewOnItemClick;
     }
 
     @NonNull
@@ -63,6 +66,20 @@ public class Rec_adapter_Requests_works extends RecyclerView.Adapter <Rec_adapte
             image = itemView.findViewById(R.id.requestwork_img_problem);
             name = itemView.findViewById(R.id.requestwork_tv_customer_name);
             Describe = itemView.findViewById(R.id.requestwork_tv_Describe);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recycleViewOnItemClick.onItemClick(getAdapterPosition());
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                public boolean onLongClick(View v) {
+                    recycleViewOnItemClick.onLongItemClick(getAdapterPosition());
+                    return true;
+                }
+            });
         }
     }
 }

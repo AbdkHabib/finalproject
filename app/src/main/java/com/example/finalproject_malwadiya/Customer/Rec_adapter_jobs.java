@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject_malwadiya.R;
+import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
@@ -17,12 +18,12 @@ public class  Rec_adapter_jobs extends RecyclerView.Adapter <Rec_adapter_jobs.jo
 
 
     ArrayList<jobs> job;
+    private RecycleViewOnItemClick recycleViewOnItemClick;
 
-    public Rec_adapter_jobs(ArrayList<jobs> job) {
-        this.job= job;
+    public Rec_adapter_jobs(ArrayList<jobs> job, RecycleViewOnItemClick recycleViewOnItemClick) {
+        this.job = job;
+        this.recycleViewOnItemClick = recycleViewOnItemClick;
     }
-
-
 
     @NonNull
     @Override
@@ -40,7 +41,7 @@ public class  Rec_adapter_jobs extends RecyclerView.Adapter <Rec_adapter_jobs.jo
         holder.details.setText(c.getnum_staff());
         holder.imageView.setImageResource(c.getImage());
     }
-
+   
     @Override
     public int getItemCount() {
         return 0;
@@ -58,6 +59,20 @@ public class  Rec_adapter_jobs extends RecyclerView.Adapter <Rec_adapter_jobs.jo
             count = itemView.findViewById(R.id.job_tv_count);
             details = itemView.findViewById(R.id.job_tv_num_staff);
             imageView = itemView.findViewById(R.id.job_imageView4);
+      itemView.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              recycleViewOnItemClick.onItemClick(getAdapterPosition());
+          }
+      });
+
+      itemView.setOnLongClickListener(new View.OnLongClickListener() {
+          public boolean onLongClick(View v) {
+              recycleViewOnItemClick.onLongItemClick(getAdapterPosition());
+         return true;
+          }
+      });
+
         }
     }
 }

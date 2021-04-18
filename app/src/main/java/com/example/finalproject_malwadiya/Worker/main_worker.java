@@ -33,8 +33,8 @@ public class main_worker extends AppCompatActivity {
 
         //fragment
         pagerAdapter adapter=new pagerAdapter(getSupportFragmentManager());
-        adapter .addTab(new my_tab("home", Fragment_Requests_Works.newInstance(1,"home")));
-        adapter.addTab(new my_tab("Processes",  Fragment_Tasks.newInstance(2,"Processes")));
+        adapter .addTab(new my_tab("home", Fragment_Requests_Works.newInstance()));
+        adapter.addTab(new my_tab("Processes",  Fragment_Tasks.newInstance()));
 
 
         ViewPager.setAdapter(adapter);

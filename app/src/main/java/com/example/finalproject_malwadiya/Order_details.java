@@ -6,30 +6,37 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.finalproject_malwadiya.Customer.add_request;
+import com.squareup.picasso.Picasso;
 
 public class Order_details extends AppCompatActivity {
-TextView name,details,jobname,customername,date;
+TextView details,job_name,customer_name,date;
 Button edit;
+ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
-        name=findViewById(R.id.tv_details_name);
         details=findViewById(R.id.tv_details_details);
-        jobname=findViewById(R.id.tv_details_jobname);
-        customername=findViewById(R.id.tv_details_customername);
+        job_name=findViewById(R.id.tv_details_jobname);
+        customer_name=findViewById(R.id.tv_details_customername);
         date=findViewById(R.id.tv_details_date);
         edit=findViewById(R.id.details_btn_accept);
+        img=findViewById(R.id.img_order);
 
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent add_res=new Intent(getBaseContext(), add_request.class);
-                startActivity(add_res);
+                Intent intent=new Intent(getBaseContext(), add_request.class);
+                intent.putExtra("details",details.getText().toString());
+                intent.putExtra("customer_name",customer_name.getText().toString());
+                intent.putExtra("img",img.);
+
+                startActivity(intent);
             }
         });
     }

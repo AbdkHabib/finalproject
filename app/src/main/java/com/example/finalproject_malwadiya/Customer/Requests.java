@@ -6,13 +6,15 @@ import android.widget.TextView;
 public class Requests {
     private String name;
     private String date;
+    private String time;
     private String adress;
     private String Status;
     private int imageView;
 
-    public Requests(String name, String date, String adress, String status, int imageView) {
+    public Requests(String name, String date, String time, String adress, String status, int imageView) {
         this.name = name;
         this.date = date;
+        this.time = time;
         this.adress = adress;
         Status = status;
         this.imageView = imageView;
@@ -32,6 +34,14 @@ public class Requests {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getAdress() {

@@ -20,29 +20,11 @@ import java.util.ArrayList;
 
 public class fragment_Requests extends Fragment {
 
-    private static final String ARG_id= "id";
-    private static final String ARG_name = "name";
-
-    private int id;
-    private String name;
-
     public fragment_Requests() {
     }
-    public static fragment_Requests newInstance(int id, String name) {
+    public static fragment_Requests newInstance() {
         fragment_Requests fragment = new fragment_Requests();
-        Bundle args = new Bundle();
-        args.putInt(ARG_id, id);
-        args.putString(ARG_name, name);
-        fragment.setArguments(args);
         return fragment;
-    }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            id = getArguments().getInt(ARG_id);
-            name = getArguments().getString(ARG_name);
-        }
     }
 
     @Override

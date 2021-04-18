@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#2196F3"
     tools:context=".Customer.add_request">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/img_add_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_weight="1"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -21,33 +21,36 @@
         android:layout_height="wrap_content"
         android:layout_weight=".5" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="Describe"
-        android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <EditText
+        android:id="@+id/et_addrequest_adress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        android:text="Adriss"
-        android:textSize="20sp" />
+        android:ems="10"
+        android:inputType="textPersonName"
+         android:hint="adress"
+        />
+
+    <EditText
+        android:id="@+id/et_addrequest_Describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Describe"
+       />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:text="add request" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"

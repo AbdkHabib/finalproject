@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finalproject_malwadiya.Customer.Rec_adapter_jobs;
 import com.example.finalproject_malwadiya.Customer.jobs;
 import com.example.finalproject_malwadiya.R;
+import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
@@ -19,11 +20,12 @@ public class Rec_adapter_Tasks extends RecyclerView.Adapter <Rec_adapter_Tasks.t
 
 
     ArrayList<Tasks> task;
+private RecycleViewOnItemClick recycleViewOnItemClick;
 
-    public Rec_adapter_Tasks(ArrayList<Tasks> task) {
+    public Rec_adapter_Tasks(ArrayList<Tasks> task, RecycleViewOnItemClick recycleViewOnItemClick) {
         this.task = task;
+        this.recycleViewOnItemClick = recycleViewOnItemClick;
     }
-
 
     @NonNull
     @Override
@@ -66,6 +68,20 @@ public class Rec_adapter_Tasks extends RecyclerView.Adapter <Rec_adapter_Tasks.t
             name = itemView.findViewById(R.id.tasks_tv_customer_name);
             accept = itemView.findViewById(R.id.tasks_btn_accept);
             Describe = itemView.findViewById(R.id.tasks_tv_Describe);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recycleViewOnItemClick.onItemClick(getAdapterPosition());
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                public boolean onLongClick(View v) {
+                    recycleViewOnItemClick.onLongItemClick(getAdapterPosition());
+                    return true;
+                }
+            });
         }
     }
 }
