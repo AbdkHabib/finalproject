@@ -1,5 +1,6 @@
 package com.example.finalproject_malwadiya.Customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,12 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 
+import com.example.finalproject_malwadiya.OrderDetails;
+import com.example.finalproject_malwadiya.OrderDetails;
 import com.example.finalproject_malwadiya.R;
+import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
 
-public class fragment_Requests extends Fragment {
+public class fragment_Requests extends Fragment implements RecycleViewOnItemClick {
 
     public fragment_Requests() {
     }
@@ -48,4 +52,15 @@ public class fragment_Requests extends Fragment {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+        Intent add_res=new Intent(getContext(), OrderDetails.class);
+        startActivity(add_res);
+    }
+
+    @Override
+    public void onLongItemClick(int position) {
+
+
+    }
 }

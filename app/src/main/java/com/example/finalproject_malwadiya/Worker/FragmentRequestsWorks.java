@@ -12,18 +12,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.finalproject_malwadiya.Customer.jobs;
+import com.example.finalproject_malwadiya.Customer.Requests;
+import com.example.finalproject_malwadiya.Customer.Jobs;
 import com.example.finalproject_malwadiya.R;
 
 import java.util.ArrayList;
 
 
-public class Fragment_Requests_Works extends Fragment {
+public class FragmentRequestsWorks extends Fragment {
 
-    public Fragment_Requests_Works() {
+    public FragmentRequestsWorks() {
     }
-    public static Fragment_Tasks newInstance() {
-        Fragment_Tasks fragment = new Fragment_Tasks();
+    public static FragmentRequestsWorks newInstance() {
+        FragmentRequestsWorks fragment = new FragmentRequestsWorks();
         return fragment;
     }
     @Override
@@ -38,7 +39,7 @@ public class Fragment_Requests_Works extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         RecyclerView rv =view.findViewById(R.id.rv_request_works);
-        ArrayList<Request_Works> request_works =new ArrayList<>();
+        ArrayList<RequestWorks> request_works =new ArrayList<>();
         RecyclerView.LayoutManager lm2=new LinearLayoutManager(getActivity());
         rv.setHasFixedSize(true);
         rv.setLayoutManager(lm2);

@@ -12,18 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.finalproject_malwadiya.Customer.jobs;
+import com.example.finalproject_malwadiya.Customer.Jobs;
 import com.example.finalproject_malwadiya.R;
 
 import java.util.ArrayList;
 
 
-public class Fragment_Tasks extends Fragment {
+public class FragmentTasks extends Fragment {
 
-    public Fragment_Tasks() {
+    public FragmentTasks() {
     }
-    public static Fragment_Tasks newInstance() {
-        Fragment_Tasks fragment = new Fragment_Tasks();
+    public static FragmentTasks newInstance() {
+        FragmentTasks fragment = new FragmentTasks();
         return fragment;
     }
 

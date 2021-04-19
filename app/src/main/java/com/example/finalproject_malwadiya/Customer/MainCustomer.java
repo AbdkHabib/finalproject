@@ -12,14 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
 
+import com.example.finalproject_malwadiya.MyTab;
+import com.example.finalproject_malwadiya.PagerAdapter;
 import com.example.finalproject_malwadiya.R;
-import com.example.finalproject_malwadiya.my_tab;
-import com.example.finalproject_malwadiya.pagerAdapter;
+import com.example.finalproject_malwadiya.MyTab;
+import com.example.finalproject_malwadiya.PagerAdapter;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class main_Customer extends AppCompatActivity {
+public class MainCustomer extends AppCompatActivity {
     TabLayout TabLayout;
     ViewPager ViewPager;
 
@@ -43,9 +45,9 @@ public class main_Customer extends AppCompatActivity {
         });
 
         //fragment
-        pagerAdapter adapter=new pagerAdapter(getSupportFragmentManager());
-        adapter .addTab(new my_tab("home", fragment_Requests.newInstance()));
-        adapter.addTab(new my_tab("Processes",  Fragment_Jobs.newInstance()));
+        PagerAdapter adapter=new PagerAdapter(getSupportFragmentManager());
+        adapter .addTab(new MyTab("home", fragment_Requests.newInstance()));
+        adapter.addTab(new MyTab("Processes",  Fragment_Jobs.newInstance()));
 
 
         ViewPager.setAdapter(adapter);
@@ -105,7 +107,7 @@ public class main_Customer extends AppCompatActivity {
             searchView.setOnCloseListener(new SearchView.OnCloseListener() {
                 @Override
                 public boolean onClose() {
-                    startActivity(new Intent(getApplicationContext(), main_Customer.class));
+                    startActivity(new Intent(getApplicationContext(), MainCustomer.class));
                     finish();
                     return false;
                 }
@@ -118,7 +120,7 @@ public class main_Customer extends AppCompatActivity {
         public boolean onOptionsItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.setting:
-                    Intent About=new Intent(this, setting.class);
+                    Intent About=new Intent(this, Setting.class);
                     startActivity(About);
 
                     return true;

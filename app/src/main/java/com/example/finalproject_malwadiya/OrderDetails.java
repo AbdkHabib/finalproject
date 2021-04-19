@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.finalproject_malwadiya.Customer.add_request;
 import com.squareup.picasso.Picasso;
 
-public class Order_details extends AppCompatActivity {
+public class OrderDetails extends AppCompatActivity {
 TextView details,job_name,customer_name,date;
 Button edit;
 ImageView img;

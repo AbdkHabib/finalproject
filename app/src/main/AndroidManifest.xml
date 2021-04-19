@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Finalproject_malwadiya">
-        <activity android:name=".Worker.setting_worker"></activity>
-        <activity android:name=".Order_details" />
+        <activity android:name=".Worker.SettingWorker"></activity>
+        <activity android:name=".OrderDetails" />
         <activity android:name=".Customer.add_request" />
-        <activity android:name=".Worker.main_worker" />
-        <activity android:name=".Customer.setting" />
-        <activity android:name=".Customer.main_Customer">
+        <activity android:name=".Worker.Main_worker" />
+        <activity android:name=".Customer.Setting" />
+        <activity android:name=".Customer.MainCustomer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

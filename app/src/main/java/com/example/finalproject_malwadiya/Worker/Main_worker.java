@@ -12,16 +12,19 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 
 import com.example.finalproject_malwadiya.Customer.Fragment_Jobs;
-import com.example.finalproject_malwadiya.Customer.main_Customer;
-import com.example.finalproject_malwadiya.Customer.setting;
+import com.example.finalproject_malwadiya.Customer.MainCustomer;
+import com.example.finalproject_malwadiya.Customer.MainCustomer;
+import com.example.finalproject_malwadiya.Customer.Setting;
+import com.example.finalproject_malwadiya.MyTab;
+import com.example.finalproject_malwadiya.PagerAdapter;
 import com.example.finalproject_malwadiya.R;
 import com.example.finalproject_malwadiya.Customer.fragment_Requests;
-import com.example.finalproject_malwadiya.my_tab;
-import com.example.finalproject_malwadiya.pagerAdapter;
+import com.example.finalproject_malwadiya.MyTab;
+import com.example.finalproject_malwadiya.PagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class main_worker extends AppCompatActivity {
+public class Main_worker extends AppCompatActivity {
   TabLayout TabLayout;
     ViewPager ViewPager;
     @Override
@@ -32,9 +35,9 @@ public class main_worker extends AppCompatActivity {
         ViewPager =findViewById(R.id.main_pager);
 
         //fragment
-        pagerAdapter adapter=new pagerAdapter(getSupportFragmentManager());
-        adapter .addTab(new my_tab("home", Fragment_Requests_Works.newInstance()));
-        adapter.addTab(new my_tab("Processes",  Fragment_Tasks.newInstance()));
+        PagerAdapter adapter=new PagerAdapter(getSupportFragmentManager());
+        adapter .addTab(new MyTab("home", FragmentRequestsWorks.newInstance()));
+        adapter.addTab(new MyTab("Processes",  FragmentTasks.newInstance()));
 
 
         ViewPager.setAdapter(adapter);
@@ -94,7 +97,7 @@ public class main_worker extends AppCompatActivity {
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
-                startActivity(new Intent(getApplicationContext(), main_Customer.class));
+                startActivity(new Intent(getApplicationContext(), MainCustomer.class));
                 finish();
                 return false;
             }
@@ -107,7 +110,7 @@ public class main_worker extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.setting:
-                Intent About=new Intent(this, setting_worker.class);
+                Intent About=new Intent(this, SettingWorker.class);
                 startActivity(About);
 
                 return true;

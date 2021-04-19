@@ -14,13 +14,13 @@ import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
-public class  Rec_adapter_jobs extends RecyclerView.Adapter <Rec_adapter_jobs.jobsViewHolder>{
+public class RecycleViewAdapterJobs extends RecyclerView.Adapter <RecycleViewAdapterJobs.jobsViewHolder>{
 
 
-    ArrayList<jobs> job;
+    ArrayList<Jobs> job;
     private RecycleViewOnItemClick recycleViewOnItemClick;
 
-    public Rec_adapter_jobs(ArrayList<jobs> job, RecycleViewOnItemClick recycleViewOnItemClick) {
+    public RecycleViewAdapterJobs(ArrayList<Jobs> job, RecycleViewOnItemClick recycleViewOnItemClick) {
         this.job = job;
         this.recycleViewOnItemClick = recycleViewOnItemClick;
     }
@@ -35,7 +35,7 @@ public class  Rec_adapter_jobs extends RecyclerView.Adapter <Rec_adapter_jobs.jo
 
     @Override
     public void onBindViewHolder(@NonNull jobsViewHolder holder, int position) {
-        jobs c =job.get(position);
+        Jobs c =job.get(position);
         holder.name.setText(c.getName());
         holder.count.setText(c.getCount());
         holder.details.setText(c.getnum_staff());

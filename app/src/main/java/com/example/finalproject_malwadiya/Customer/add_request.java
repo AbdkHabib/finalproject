@@ -105,7 +105,7 @@ public class add_request extends AppCompatActivity {
                 String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 String time = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
 
-                Requests requests=new Requests("",date,time,adress.getText().toString(),"",55);
+                Add requests=new Add("",date,time,adress.getText().toString(),"",55);
 
 
             }

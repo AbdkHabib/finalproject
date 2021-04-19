@@ -1,6 +1,6 @@
 package com.example.finalproject_malwadiya.Customer;
 
-public class jobs {
+public class Jobs {
     private String name;
     private int image;
     private int count;

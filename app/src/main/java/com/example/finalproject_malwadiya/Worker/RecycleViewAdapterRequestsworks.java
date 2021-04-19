@@ -9,36 +9,36 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalproject_malwadiya.Customer.Rec_adapter_jobs;
+import com.example.finalproject_malwadiya.Customer.RecycleViewAdapterJobs;
 import com.example.finalproject_malwadiya.Customer.Requests;
-import com.example.finalproject_malwadiya.Customer.jobs;
+import com.example.finalproject_malwadiya.Customer.Jobs;
 import com.example.finalproject_malwadiya.R;
 import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
-public class Rec_adapter_Requests_works extends RecyclerView.Adapter <Rec_adapter_Requests_works.RequestsViewHolder>{
+public class RecycleViewAdapterRequestsworks extends RecyclerView.Adapter <RecycleViewAdapterRequestsworks.RequestsViewHolder>{
 
 
-    ArrayList<Request_Works> Request;
+    ArrayList<RequestWorks> Request;
     private RecycleViewOnItemClick recycleViewOnItemClick;
 
-    public Rec_adapter_Requests_works(ArrayList<Request_Works> request, RecycleViewOnItemClick recycleViewOnItemClick) {
+    public RecycleViewAdapterRequestsworks(ArrayList<RequestWorks> request, RecycleViewOnItemClick recycleViewOnItemClick) {
         Request = request;
         this.recycleViewOnItemClick = recycleViewOnItemClick;
     }
 
     @NonNull
     @Override
-    public Rec_adapter_Requests_works.RequestsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecycleViewAdapterRequestsworks.RequestsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v=  LayoutInflater.from(parent.getContext()).inflate(R.layout.request_works_custom_item,null,false);
-        Rec_adapter_Requests_works.RequestsViewHolder ViewHolder = new Rec_adapter_Requests_works.RequestsViewHolder(v);
+        RecycleViewAdapterRequestsworks.RequestsViewHolder ViewHolder = new RecycleViewAdapterRequestsworks.RequestsViewHolder(v);
         return ViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Rec_adapter_Requests_works.RequestsViewHolder holder, int position) {
-        Request_Works c =Request.get(position);
+    public void onBindViewHolder(@NonNull RecycleViewAdapterRequestsworks.RequestsViewHolder holder, int position) {
+        RequestWorks c =Request.get(position);
         holder.address.setText(c.getDescribe());
         holder.date.setText(c.getDate());
         holder.name.setText(c.getName());

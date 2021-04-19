@@ -14,14 +14,14 @@ import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
-public class Rec_adapter_Requests extends RecyclerView.Adapter <Rec_adapter_Requests.RequestsViewHolder>{
+public class RecycleViewAdapterRequests extends RecyclerView.Adapter <RecycleViewAdapterRequests.RequestsViewHolder>{
 
 
     ArrayList<Requests> Request;
 
     private RecycleViewOnItemClick recycleViewOnItemClick;
 
-    public Rec_adapter_Requests(ArrayList<Requests> request, RecycleViewOnItemClick recycleViewOnItemClick) {
+    public RecycleViewAdapterRequests(ArrayList<Requests> request, RecycleViewOnItemClick recycleViewOnItemClick) {
         Request = request;
         this.recycleViewOnItemClick = recycleViewOnItemClick;
     }

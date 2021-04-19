@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#2196F3"
     android:orientation="vertical"
-    tools:context=".Order_details">
+    tools:context=".OrderDetails">
 
     <ImageView
         android:id="@+id/img_order"

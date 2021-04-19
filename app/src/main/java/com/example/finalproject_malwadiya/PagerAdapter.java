@@ -6,17 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.finalproject_malwadiya.my_tab;
+import com.example.finalproject_malwadiya.MyTab;
 
 import java.util.ArrayList;
 
-public class pagerAdapter extends FragmentStatePagerAdapter {
-    ArrayList<my_tab>tabs=new ArrayList<>();
+public class PagerAdapter extends FragmentStatePagerAdapter {
+    ArrayList<MyTab>tabs=new ArrayList<>();
 
-    public pagerAdapter(@NonNull FragmentManager fm) {
+    public PagerAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
-    public void addtab(my_tab tab){
+    public void addtab(MyTab tab){
         tabs.add(tab);
     }
     @NonNull
@@ -31,7 +31,7 @@ public class pagerAdapter extends FragmentStatePagerAdapter {
         return tabs.get(position).getTabname();
     }
 
-    public void addTab(my_tab tab) {
+    public void addTab(MyTab tab) {
         tabs.add(tab);
     }
 

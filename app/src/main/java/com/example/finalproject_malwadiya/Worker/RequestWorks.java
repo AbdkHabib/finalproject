@@ -3,14 +3,14 @@ package com.example.finalproject_malwadiya.Worker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Request_Works {
+public class RequestWorks {
     private String adriss;
     private String date;
     private int image;
     private String name;
     private String Describe;
 
-    public Request_Works(String adriss, String date, int image, String name, String describe) {
+    public RequestWorks(String adriss, String date, int image, String name, String describe) {
         this.adriss = adriss;
         this.date = date;
         this.image = image;
