@@ -46,8 +46,8 @@ public class MainCustomer extends AppCompatActivity {
 
         //fragment
         PagerAdapter adapter=new PagerAdapter(getSupportFragmentManager());
-        adapter .addTab(new MyTab("home", fragment_Requests.newInstance()));
-        adapter.addTab(new MyTab("Processes",  Fragment_Jobs.newInstance()));
+        adapter .addTab(new MyTab("home", FragmentRequests.newInstance()));
+        adapter.addTab(new MyTab("Processes",  FragmentJobs.newInstance()));
 
 
         ViewPager.setAdapter(adapter);
