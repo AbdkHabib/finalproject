@@ -20,7 +20,7 @@ import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
-public class FragmentJobs extends Fragment implements RecycleViewOnItemClick {
+public class FragmentJobs extends Fragment  {
 
 
     public FragmentJobs() {
@@ -47,20 +47,22 @@ public class FragmentJobs extends Fragment implements RecycleViewOnItemClick {
 
         RecyclerView rv =view.findViewById(R.id.rec_view_jobs);
         ArrayList<Jobs> jobs =new ArrayList<>();
-        RecyclerView.LayoutManager lm2=new LinearLayoutManager(getActivity());
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(lm2);
-    }
 
-// click on rec_view to intent
-    @Override
-    public void onItemClick(int position) {
-        Intent add_res=new Intent(getContext(),واجهة 6.class);
-        startActivity(add_res);
-    }
+        RecycleViewAdapterJobs adapter   =new RecycleViewAdapterJobs(jobs, new RecycleViewOnItemClick() {
+            @Override
+            public void onItemClick(int position) {
 
-    @Override
-    public void onLongItemClick(int position) {
+            }
 
-    }
-}
+            @Override
+            public void onLongItemClick(int position) {
+            }
+        });
+                RecyclerView.LayoutManager lm2=new LinearLayoutManager(getActivity());
+                rv.setHasFixedSize(true);
+                rv.setLayoutManager(lm2);
+            }
+
+
+        }
+

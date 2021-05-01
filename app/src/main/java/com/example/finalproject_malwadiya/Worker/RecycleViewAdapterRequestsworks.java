@@ -14,6 +14,7 @@ import com.example.finalproject_malwadiya.Customer.Requests;
 import com.example.finalproject_malwadiya.Customer.Jobs;
 import com.example.finalproject_malwadiya.R;
 import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -42,7 +43,8 @@ public class RecycleViewAdapterRequestsworks extends RecyclerView.Adapter <Recyc
         holder.address.setText(c.getDescribe());
         holder.date.setText(c.getDate());
         holder.name.setText(c.getName());
-        holder.image.setImageResource(c.getImage());
+
+        Picasso.get().load("https/").into(holder.image);
     }
 
     @Override

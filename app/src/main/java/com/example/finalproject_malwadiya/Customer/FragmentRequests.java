@@ -22,7 +22,7 @@ import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 import java.util.ArrayList;
 
 
-public class FragmentRequests extends Fragment implements RecycleViewOnItemClick {
+public class FragmentRequests extends Fragment  {
 
     public FragmentRequests() {
     }
@@ -43,6 +43,17 @@ public class FragmentRequests extends Fragment implements RecycleViewOnItemClick
 
         RecyclerView rv =view.findViewById(R.id.rv_request);
         ArrayList<Requests> Requests =new ArrayList<>();
+        RecycleViewAdapterRequests adapter   =new RecycleViewAdapterRequests(Requests, new RecycleViewOnItemClick() {
+            @Override
+            public void onItemClick(int position) {
+
+            }
+
+            @Override
+            public void onLongItemClick(int position) {
+
+            }
+        });
         RecyclerView.LayoutManager lm2=new LinearLayoutManager(getActivity());
         rv.setHasFixedSize(true);
         rv.setLayoutManager(lm2);
@@ -51,16 +62,4 @@ public class FragmentRequests extends Fragment implements RecycleViewOnItemClick
 
     }
 
-
-    @Override
-    public void onItemClick(int position) {
-        Intent add_res=new Intent(getContext(), OrderDetails.class);
-        startActivity(add_res);
     }
-
-    @Override
-    public void onLongItemClick(int position) {
-
-
-    }
-}

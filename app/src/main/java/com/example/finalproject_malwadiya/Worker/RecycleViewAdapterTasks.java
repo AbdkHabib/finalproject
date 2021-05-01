@@ -13,6 +13,7 @@ import com.example.finalproject_malwadiya.Customer.RecycleViewAdapterJobs;
 import com.example.finalproject_malwadiya.Customer.Jobs;
 import com.example.finalproject_malwadiya.R;
 import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -41,8 +42,9 @@ private RecycleViewOnItemClick recycleViewOnItemClick;
         holder.address.setText(c.getDescribe());
         holder.date.setText(c.getDate());
         holder.name.setText(c.getName());
-        holder.image.setImageResource(c.getImage());
         holder.accept.setText(c.getAccept());
+        Picasso.get().load("https/").into(holder.image);
+
     }
 
     @Override
@@ -55,19 +57,20 @@ private RecycleViewOnItemClick recycleViewOnItemClick;
 
               TextView address;
               TextView date;
-              ImageView image;
+
               TextView name;
                TextView accept;
                TextView Describe;
+        ImageView image;
         public tasksViewHolder(@NonNull View itemView) {
             super(itemView);
 
             address = itemView.findViewById(R.id.tasks_tv_address);
             date = itemView.findViewById(R.id.tasks_tv_date);
-            image = itemView.findViewById(R.id.tasks_img_problem);
             name = itemView.findViewById(R.id.tasks_tv_customer_name);
             accept = itemView.findViewById(R.id.tasks_btn_accept);
             Describe = itemView.findViewById(R.id.tasks_tv_Describe);
+            image = itemView.findViewById(R.id.tasks_img_problem);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

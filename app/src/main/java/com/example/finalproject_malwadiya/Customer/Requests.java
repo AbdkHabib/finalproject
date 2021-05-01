@@ -6,15 +6,15 @@ public class Requests {
     private String adress;
     private String Describe;
     private String Status;
-    private int imageView;
+    private String imageURL;
 
-    public Requests(String name, String date, String adress, String describe, String status, int imageView) {
+    public Requests(String name, String date, String adress, String describe, String status, String imageURL) {
         this.name = name;
         this.date = date;
         this.adress = adress;
         Describe = describe;
         Status = status;
-        this.imageView = imageView;
+        this.imageURL = imageURL;
     }
 
     public String getName() {
@@ -57,11 +57,11 @@ public class Requests {
         Status = status;
     }
 
-    public int getImageView() {
-        return imageView;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setImageView(int imageView) {
-        this.imageView = imageView;
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }

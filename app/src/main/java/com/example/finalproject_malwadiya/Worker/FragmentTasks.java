@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.finalproject_malwadiya.Customer.Jobs;
+import com.example.finalproject_malwadiya.Customer.RecycleViewAdapterJobs;
 import com.example.finalproject_malwadiya.R;
+import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
 
 import java.util.ArrayList;
 
@@ -42,6 +44,17 @@ public class FragmentTasks extends Fragment {
         RecyclerView rv =view.findViewById(R.id.rv_tasks);
         ArrayList<Tasks> tasks =new ArrayList<>();
         RecyclerView.LayoutManager lm2=new LinearLayoutManager(getActivity());
+
+        RecycleViewAdapterTasks adapter   =new RecycleViewAdapterTasks(tasks, new RecycleViewOnItemClick() {
+            @Override
+            public void onItemClick(int position) {
+
+            }
+
+            @Override
+            public void onLongItemClick(int position) {
+            }
+        });
         rv.setHasFixedSize(true);
         rv.setLayoutManager(lm2);
     }

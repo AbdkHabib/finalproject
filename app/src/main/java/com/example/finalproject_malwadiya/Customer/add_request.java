@@ -1,7 +1,9 @@
 package com.example.finalproject_malwadiya.Customer;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,25 +12,35 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.finalproject_malwadiya.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class add_request extends AppCompatActivity {
     private static final int RESULT = 1;
     Spinner spinner;
-    TextView adress, Describe;
+    EditText adress, Describe;
     ImageView img_add;
-    Button button_add,button_edit;
+    Map<String,Object> add_newCorporation ;
+    Button button_add;
     private Uri uri;
-
+    FirebaseFirestore dp ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,10 +76,7 @@ public class add_request extends AppCompatActivity {
         String b = i.getStringExtra("customer_name");
         Describe.setText(b);
 
-        String c  i.getStringExtra("img");
-
-
-
+        String c = i.getStringExtra("img");
         Picasso.get().load("").into(img_add);
 
 
@@ -98,18 +107,50 @@ public class add_request extends AppCompatActivity {
         }
 
 
+
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!adress.getText().toString().isEmpty()&& !Describe.getText().toString().isEmpty()) {
+                    addtofirebase();
+                }
+                else {
+                    Toast.makeText(add_request.this, "Fill in the fields", Toast.LENGTH_SHORT).show();
 
                 String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 String time = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
 
-                Add requests=new Add("",date,time,adress.getText().toString(),"",55);
+                Add requests=new Add("",date,time,adress.getText().toString(),"","");
 
 
             }
+        }
+        private void addtofirebase() {
+            FirebaseStorage storage = FirebaseStorage.getInstance("gs://finalproject-bd0f4.appspot.com");
+
+            add_newCorporation = new HashMap<>();
+            add_newCorporation.put("adress", adress.getText().toString());
+            add_newCorporation.put("Describe", Describe.getText().toString());
+            add_newCorporation.put("spinner", spinner.getSelectedItem().toString());
+            add_newCorporation.put("spinner", spinner.getSelectedItem().toString());
+            users.put("Image", url.toString());
+
+            dp.collection("add_reservation").add(add_newCorporation)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(add_request.this, " onSuccess ",
+                                    Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getBaseContext(), FragmentJobs.class);
+                            startActivity(intent);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(add_request.this, " onFailure ", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
         });
     }
-
 }

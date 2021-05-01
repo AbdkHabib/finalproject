@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject_malwadiya.R;
 import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -41,12 +42,13 @@ public class RecycleViewAdapterRequests extends RecyclerView.Adapter <RecycleVie
         holder.date.setText(c.getDate());
         holder.adress.setText(c.getAdress());
         holder.Status.setText(c.getStatus());
-        holder.imageView.setImageResource(c.getImageView());
+
+        Picasso.get().load("https/").into( holder.imageURL);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return Request.size();
     }
 
     class RequestsViewHolder extends  RecyclerView.ViewHolder{
@@ -54,7 +56,7 @@ public class RecycleViewAdapterRequests extends RecyclerView.Adapter <RecycleVie
         TextView date;
         TextView adress;
         TextView Status;
-        ImageView imageView;
+        ImageView imageURL;
         public RequestsViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -62,7 +64,7 @@ public class RecycleViewAdapterRequests extends RecyclerView.Adapter <RecycleVie
             date = itemView.findViewById(R.id.request_tv_date);
             adress = itemView.findViewById(R.id.request_tv_adresss);
             Status = itemView.findViewById(R.id.request_tv_Status);
-            imageView = itemView.findViewById(R.id.request_imageView4);
+            imageURL = itemView.findViewById(R.id.request_imageView4);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -34,7 +34,8 @@ ImageView img;
                 Intent intent=new Intent(getBaseContext(), add_request.class);
                 intent.putExtra("details",details.getText().toString());
                 intent.putExtra("customer_name",customer_name.getText().toString());
-                intent.putExtra("img",img.);
+                intent.putExtra( Picasso.get().load("https/").into(img));
+
 
                 startActivity(intent);
             }

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject_malwadiya.R;
 import com.example.finalproject_malwadiya.RecycleViewOnItemClick;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,8 +39,8 @@ public class RecycleViewAdapterJobs extends RecyclerView.Adapter <RecycleViewAda
         Jobs c =job.get(position);
         holder.name.setText(c.getName());
         holder.count.setText(c.getCount());
-        holder.details.setText(c.getnum_staff());
-        holder.imageView.setImageResource(c.getImage());
+        holder.numsrtuff.setText(c.getNum_staff());
+        Picasso.get().load("https/").into(holder.imageView);
     }
    
     @Override
@@ -50,14 +51,14 @@ public class RecycleViewAdapterJobs extends RecyclerView.Adapter <RecycleViewAda
     class jobsViewHolder extends  RecyclerView.ViewHolder{
         TextView name;
         TextView count;
-        TextView details;
+        TextView numsrtuff;
         ImageView imageView;
         public jobsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             name = itemView.findViewById(R.id.job_tv_job_name);
             count = itemView.findViewById(R.id.job_tv_count);
-            details = itemView.findViewById(R.id.job_tv_num_staff);
+            numsrtuff = itemView.findViewById(R.id.job_tv_num_staff);
             imageView = itemView.findViewById(R.id.job_imageView4);
       itemView.setOnClickListener(new View.OnClickListener() {
           @Override
